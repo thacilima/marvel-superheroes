@@ -11,6 +11,8 @@ import XCTest
 
 class MarvelSuperHeroesTests: XCTestCase {
     
+    let marvelService = MarvelService()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -33,4 +35,18 @@ class MarvelSuperHeroesTests: XCTestCase {
         }
     }
     
+    func testGetZeroHeroesFromService() {
+        let result = marvelService.getHeroes(limit:0, offset:0)
+        XCTAssertTrue(result.count == 0)
+    }
+    
+    func testGetThreeHeroesFromService() {
+        let result = marvelService.getHeroes(limit:3, offset:0)
+        XCTAssertTrue(result.count == 3)
+    }
+    
+    func testGetHeroesInfoFromService() {
+        let result = marvelService.getHeroes(limit: 1, offset: 0)
+        XCTAssertTrue(result[0].id != 0)
+    }
 }
