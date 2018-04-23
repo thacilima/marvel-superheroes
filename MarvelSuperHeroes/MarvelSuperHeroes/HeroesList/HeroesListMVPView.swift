@@ -12,4 +12,5 @@ protocol HeroesListMVPView: class {
     func show(heroes:[Hero])
     func showTopLoading()
     func showBottomLoading()
+    func showErrorLoadingHeroes()
 }

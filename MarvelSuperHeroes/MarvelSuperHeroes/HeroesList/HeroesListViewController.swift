@@ -72,11 +72,30 @@ extension HeroesListViewController: UITableViewDelegate {
 }
 
 extension HeroesListViewController: HeroesListMVPView {
+    func showErrorLoadingHeroes() {
+        bottomActivityIndicator.stopAnimating()
+        if topLoadingRefreshControl.isRefreshing {
+            topLoadingRefreshControl.endRefreshing()
+            
+            let label = UILabel(frame: CGRect.zero)
+            label.numberOfLines = 0
+            label.text = "Oops! Sorry, our heroes might be acting.\nPull to try calling them again!"
+            label.font = UIFont.boldSystemFont(ofSize: 12.0)
+            label.textColor = UIColor.white
+            label.textAlignment = .center
+            label.backgroundColor = UIColor.red.withAlphaComponent(0.6)
+            tableView.tableHeaderView = label
+            label.sizeToFit()
+            tableView.reloadData()
+        }
+    }
+    
     func show(heroes: [Hero]) {
         self.heroes = heroes
         tableView.reloadData()
         topLoadingRefreshControl.endRefreshing()
         bottomActivityIndicator.stopAnimating()
+        tableView.tableHeaderView = nil
     }
     
     func showTopLoading() {
