@@ -9,9 +9,29 @@
 import Foundation
 
 class HeroesListPresenter {
-    var mvpView: HeroesListMVPView!
+    
+    let marvelService = MarvelService()
+    weak var mvpView: HeroesListMVPView!
+    
+    var heroes: [Hero] = []
+    let limit = 20
+    var offset = 0
     
     func attach(mvpView: HeroesListMVPView) {
-        
+        self.mvpView = mvpView
+    }
+    
+    func loadHeroes() {
+        marvelService.getHeroes(limit: limit, offset: offset, callback: { [weak self] heroes, error in
+            guard error == nil else {
+                //TODO mvpview.showError()
+                return
+            }
+            self?.heroes = heroes ?? []
+            
+            DispatchQueue.main.async {
+                self?.mvpView.show(heroes: heroes ?? [])
+            }
+        })
     }
 }

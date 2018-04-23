@@ -17,13 +17,31 @@
                     <view key="view" contentMode="scaleToFill" id="wYI-qx-DPA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q2F-KB-gci">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GNG-xh-IRA" id="V6b-uV-Ovk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q2F-KB-gci" firstAttribute="leading" secondItem="vfE-tK-yAQ" secondAttribute="leading" id="4x4-VI-1YH"/>
+                            <constraint firstItem="q2F-KB-gci" firstAttribute="trailing" secondItem="vfE-tK-yAQ" secondAttribute="trailing" id="Hfk-Uk-aP8"/>
+                            <constraint firstItem="q2F-KB-gci" firstAttribute="top" secondItem="wYI-qx-DPA" secondAttribute="top" id="RyY-DL-2Xz"/>
+                            <constraint firstItem="q2F-KB-gci" firstAttribute="bottom" secondItem="vfE-tK-yAQ" secondAttribute="bottom" id="dx3-aK-ApW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vfE-tK-yAQ"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="q2F-KB-gci" id="mJJ-DW-ZZP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4E-9P-6tc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="-165"/>
+            <point key="canvasLocation" x="44" y="-165.06746626686657"/>
         </scene>
     </scenes>
 </document>

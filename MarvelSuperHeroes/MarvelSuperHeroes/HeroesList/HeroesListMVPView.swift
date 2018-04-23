@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol HeroesListMVPView {
-    
+protocol HeroesListMVPView: class {
+    func show(heroes:[Hero])
 }
