@@ -8,8 +8,19 @@
 
 import Foundation
 
-struct Hero {
+struct Hero: Codable {
+    
+    struct RemoteImageDataWrapper: Codable {
+        let path: String
+        let imageExtension: String
+        
+        enum CodingKeys: String, CodingKey {
+            case path
+            case imageExtension = "extension"
+        }
+    }
+    
     let id: Int
     let name: String
-    let thumbnailPath: URL?
+    let thumbnail: RemoteImageDataWrapper?
 }

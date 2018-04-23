@@ -16,6 +16,7 @@
 		062271AA208B95FD00E09F52 /* MarvelSuperHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062271A9208B95FD00E09F52 /* MarvelSuperHeroesTests.swift */; };
 		062271B5208B95FD00E09F52 /* MarvelSuperHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062271B4208B95FD00E09F52 /* MarvelSuperHeroesUITests.swift */; };
 		064AD6FF208D3EF9009C2670 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD6FE208D3EF9009C2670 /* String+MD5.swift */; };
+		064AD702208D4F02009C2670 /* CharacterDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD701208D4F02009C2670 /* CharacterDataWrapper.swift */; };
 		06702D53208B9D5700E1D542 /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06702D52208B9D5700E1D542 /* MarvelService.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		062271B6208B95FD00E09F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		064AD6FE208D3EF9009C2670 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		064AD700208D4268009C2670 /* MarvelSuperHeroes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelSuperHeroes-Bridging-Header.h"; sourceTree = "<group>"; };
+		064AD701208D4F02009C2670 /* CharacterDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataWrapper.swift; sourceTree = "<group>"; };
 		06702D52208B9D5700E1D542 /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				0606D802208CBB51001C61B3 /* Hero.swift */,
 				064AD6FE208D3EF9009C2670 /* String+MD5.swift */,
 				064AD700208D4268009C2670 /* MarvelSuperHeroes-Bridging-Header.h */,
+				064AD701208D4F02009C2670 /* CharacterDataWrapper.swift */,
 			);
 			path = MarvelSuperHeroes;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				06227197208B95FD00E09F52 /* ViewController.swift in Sources */,
 				06702D53208B9D5700E1D542 /* MarvelService.swift in Sources */,
 				064AD6FF208D3EF9009C2670 /* String+MD5.swift in Sources */,
+				064AD702208D4F02009C2670 /* CharacterDataWrapper.swift in Sources */,
 				06227195208B95FD00E09F52 /* AppDelegate.swift in Sources */,
 				0606D803208CBB51001C61B3 /* Hero.swift in Sources */,
 			);
