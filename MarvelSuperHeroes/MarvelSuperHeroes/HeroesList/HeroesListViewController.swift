@@ -11,7 +11,8 @@ import UIKit
 class HeroesListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    weak var refreshControl: UIRefreshControl!
+    weak var topLoadingRefreshControl: UIRefreshControl!
+    weak var bottomActivityIndicator: UIActivityIndicatorView!
     
     let presenter = HeroesListPresenter()
     var heroes: [Hero] = []
@@ -19,19 +20,26 @@ class HeroesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach(mvpView: self)
+        setupActivityIndicator()
         setupRefreshControl()
-        presenter.loadHeroes()
+        presenter.refreshHeroes()
     }
     
     func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefreshData(_:)), for: UIControlEvents.valueChanged)
         tableView.addSubview(refreshControl)
-        self.refreshControl = refreshControl
+        topLoadingRefreshControl = refreshControl
+    }
+    
+    func setupActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        tableView.tableFooterView = activityIndicator
+        bottomActivityIndicator = activityIndicator
     }
     
     @objc func handleRefreshData(_ refreshControl: UIRefreshControl) {
-        presenter.loadHeroes()
+        presenter.refreshHeroes()
     }
 }
 
@@ -54,14 +62,28 @@ extension HeroesListViewController: UITableViewDataSource {
     }
 }
 
+extension HeroesListViewController: UITableViewDelegate {
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
+        if (bottomEdge >= scrollView.contentSize.height) {
+            presenter.loadHeroesNextPage()
+        }
+    }
+}
+
 extension HeroesListViewController: HeroesListMVPView {
     func show(heroes: [Hero]) {
         self.heroes = heroes
         tableView.reloadData()
-        refreshControl.endRefreshing()
+        topLoadingRefreshControl.endRefreshing()
+        bottomActivityIndicator.stopAnimating()
     }
     
-    func showLoadingCollectionData() {
-        refreshControl.beginRefreshing()
+    func showTopLoading() {
+        topLoadingRefreshControl.beginRefreshing()
+    }
+    
+    func showBottomLoading() {
+        bottomActivityIndicator.startAnimating()
     }
 }

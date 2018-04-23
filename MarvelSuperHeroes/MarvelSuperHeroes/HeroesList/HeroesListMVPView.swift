@@ -10,5 +10,6 @@ import Foundation
 
 protocol HeroesListMVPView: class {
     func show(heroes:[Hero])
-    func showLoadingCollectionData()
+    func showTopLoading()
+    func showBottomLoading()
 }

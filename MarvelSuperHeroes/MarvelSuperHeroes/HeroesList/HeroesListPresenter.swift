@@ -21,17 +21,33 @@ class HeroesListPresenter {
         self.mvpView = mvpView
     }
     
-    func loadHeroes() {
-        mvpView.showLoadingCollectionData()
+    func refreshHeroes() {
+        mvpView.showTopLoading()
+        loadHeroes(offset: 0)
+    }
+    
+    func loadHeroesNextPage() {
+        if heroes.count > 0 {
+            mvpView.showBottomLoading()
+            loadHeroes(offset: offset+limit)
+        }
+    }
+    
+    private func loadHeroes(offset: Int) {
         marvelService.getHeroes(limit: limit, offset: offset, callback: { [weak self] heroes, error in
             guard error == nil else {
                 //TODO mvpview.showError()
                 return
             }
-            self?.heroes = heroes ?? []
+            
+            self?.offset = offset
+            if offset == 0 {
+                self?.heroes = []
+            }
+            self?.heroes.append(contentsOf: heroes ?? [])
             
             DispatchQueue.main.async {
-                self?.mvpView.show(heroes: heroes ?? [])
+                self?.mvpView.show(heroes: self?.heroes ?? [])
             }
         })
     }
