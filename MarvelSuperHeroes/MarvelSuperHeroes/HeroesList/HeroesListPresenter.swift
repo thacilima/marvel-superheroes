@@ -22,6 +22,7 @@ class HeroesListPresenter {
     }
     
     func loadHeroes() {
+        mvpView.showLoadingCollectionData()
         marvelService.getHeroes(limit: limit, offset: offset, callback: { [weak self] heroes, error in
             guard error == nil else {
                 //TODO mvpview.showError()

@@ -11,6 +11,7 @@ import UIKit
 class HeroesListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    weak var refreshControl: UIRefreshControl!
     
     let presenter = HeroesListPresenter()
     var heroes: [Hero] = []
@@ -18,6 +19,18 @@ class HeroesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach(mvpView: self)
+        setupRefreshControl()
+        presenter.loadHeroes()
+    }
+    
+    func setupRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefreshData(_:)), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
+        self.refreshControl = refreshControl
+    }
+    
+    @objc func handleRefreshData(_ refreshControl: UIRefreshControl) {
         presenter.loadHeroes()
     }
 }
@@ -45,5 +58,10 @@ extension HeroesListViewController: HeroesListMVPView {
     func show(heroes: [Hero]) {
         self.heroes = heroes
         tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    func showLoadingCollectionData() {
+        refreshControl.beginRefreshing()
     }
 }
