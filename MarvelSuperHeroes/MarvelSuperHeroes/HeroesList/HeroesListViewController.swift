@@ -56,8 +56,9 @@ extension HeroesListViewController: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellReuseIdentifier)
         }
         
-        cell?.textLabel?.text = heroes[indexPath.row].name
-        
+        let hero = heroes[indexPath.row]
+        cell?.textLabel?.text = hero.name
+        cell?.imageView?.loadImage(fromUrlString: presenter.imageUrlStringForList(fromMarvelImage: hero.thumbnail), placeholder: #imageLiteral(resourceName: "placeholder"))
         return cell
     }
 }

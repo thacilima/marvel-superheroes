@@ -33,6 +33,12 @@ class HeroesListPresenter {
         }
     }
     
+    func imageUrlStringForList(fromMarvelImage marvelImage: Hero.RemoteImageDataWrapper) -> String {
+        return "\(marvelImage.path)/standard_medium.\(marvelImage.imageExtension)"
+    }
+    
+    // MARK: - Private methods
+    
     private func loadHeroes(offset: Int) {
         marvelService.getHeroes(limit: limit, offset: offset, callback: { [weak self] heroes, error in
             guard error == nil else {
