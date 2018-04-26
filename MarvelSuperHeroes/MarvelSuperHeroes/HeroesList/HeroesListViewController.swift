@@ -17,12 +17,21 @@ class HeroesListViewController: UIViewController {
     let presenter = HeroesListPresenter()
     var heroes: [Hero] = []
     
+    let showHeroDetailsSegue = "ShowHeroDetailsSegue"
+    let customPresentAnimatedTransitioning = CustomPresentAnimatedTransitioning()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attach(mvpView: self)
         setupActivityIndicator()
         setupRefreshControl()
         presenter.refreshHeroes()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showHeroDetailsSegue {
+            segue.destination.transitioningDelegate = self
+        }
     }
     
     func setupRefreshControl() {
@@ -72,7 +81,7 @@ extension HeroesListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowHeroDetailsSegue", sender: self)
+        performSegue(withIdentifier: showHeroDetailsSegue, sender: self)
     }
 }
 
@@ -109,5 +118,11 @@ extension HeroesListViewController: HeroesListMVPView {
     
     func showBottomLoading() {
         bottomActivityIndicator.startAnimating()
+    }
+}
+
+extension HeroesListViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customPresentAnimatedTransitioning
     }
 }
