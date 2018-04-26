@@ -26,7 +26,7 @@ class MarvelService {
         let publicKey = "c8ba6278a8341ed4ba9d129a86de68d5"
         let hash = "\(ts.uuidString)\(privateKey)\(publicKey)".md5()
         let urlString = "https://gateway.marvel.com/v1/public/characters?limit=\(limit)&offset=\(offset)&ts=\(ts.uuidString)&apikey=\(publicKey)&hash=\(hash)"
-        MarvelService().getHttpRequest(urlString: urlString, callback: { data, error in
+        getHttpRequest(urlString: urlString, callback: { data, error in
             
             guard error == nil else {
                 callback(nil, error)

@@ -31,7 +31,7 @@
                         <constraints>
                             <constraint firstItem="q2F-KB-gci" firstAttribute="leading" secondItem="vfE-tK-yAQ" secondAttribute="leading" id="4x4-VI-1YH"/>
                             <constraint firstItem="q2F-KB-gci" firstAttribute="trailing" secondItem="vfE-tK-yAQ" secondAttribute="trailing" id="Hfk-Uk-aP8"/>
-                            <constraint firstItem="q2F-KB-gci" firstAttribute="top" secondItem="wYI-qx-DPA" secondAttribute="top" id="RyY-DL-2Xz"/>
+                            <constraint firstItem="q2F-KB-gci" firstAttribute="top" secondItem="vfE-tK-yAQ" secondAttribute="top" id="RyY-DL-2Xz"/>
                             <constraint firstItem="q2F-KB-gci" firstAttribute="bottom" secondItem="vfE-tK-yAQ" secondAttribute="bottom" id="dx3-aK-ApW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vfE-tK-yAQ"/>
