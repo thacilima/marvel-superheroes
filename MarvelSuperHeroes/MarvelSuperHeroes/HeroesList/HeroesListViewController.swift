@@ -70,6 +70,10 @@ extension HeroesListViewController: UITableViewDelegate {
             presenter.loadHeroesNextPage()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowHeroDetailsSegue", sender: self)
+    }
 }
 
 extension HeroesListViewController: HeroesListMVPView {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HNH-gs-bwp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hero Details View Controller-->
+        <scene sceneID="oOd-CX-4qd">
+            <objects>
+                <viewController id="HNH-gs-bwp" customClass="HeroDetailsViewController" customModule="MarvelSuperHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T07-ha-moA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efw-sx-7ub">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="1MS-Em-2GO">
+                                        <barButtonItem key="leftBarButtonItem" title="Heroes" id="8EH-MB-10G">
+                                            <connections>
+                                                <action selector="onClickBack:" destination="HNH-gs-bwp" id="i4X-v8-bBl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSN-Uc-lfI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="180"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="BD7-6R-who"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Efw-sx-7ub" firstAttribute="trailing" secondItem="dfD-77-agj" secondAttribute="trailing" id="56M-ZT-sva"/>
+                            <constraint firstItem="dSN-Uc-lfI" firstAttribute="top" secondItem="Efw-sx-7ub" secondAttribute="bottom" id="6Sh-Wb-jOF"/>
+                            <constraint firstItem="Efw-sx-7ub" firstAttribute="leading" secondItem="dfD-77-agj" secondAttribute="leading" id="MzE-JB-hah"/>
+                            <constraint firstItem="dSN-Uc-lfI" firstAttribute="leading" secondItem="dfD-77-agj" secondAttribute="leading" id="TK9-Yf-qCQ"/>
+                            <constraint firstItem="dSN-Uc-lfI" firstAttribute="trailing" secondItem="dfD-77-agj" secondAttribute="trailing" id="hXj-fD-ztP"/>
+                            <constraint firstItem="dfD-77-agj" firstAttribute="top" secondItem="Efw-sx-7ub" secondAttribute="top" id="k1F-MQ-Usp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dfD-77-agj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hA8-uR-25t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="76.911544227886068"/>
+        </scene>
+    </scenes>
+</document>
