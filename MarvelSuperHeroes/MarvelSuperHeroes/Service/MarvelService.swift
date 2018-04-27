@@ -39,7 +39,7 @@ class MarvelService {
             
             let decoder = JSONDecoder()
             do {
-                let characterDataWrapper = try decoder.decode(CharacterDataWrapper.self, from: data)
+                let characterDataWrapper = try decoder.decode(MarvelDataWrapper<Hero>.self, from: data)
                 guard characterDataWrapper.code == 200 else {
                     callback(nil, MarvelServiceError.statusCodeReturnedErrorCode(code: characterDataWrapper.code, status: characterDataWrapper.status))
                     return

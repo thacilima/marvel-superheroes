@@ -1,5 +1,5 @@
 //
-//  CharacterDataWrapper.swift
+//  MarvelDataWrapper.swift
 //  MarvelSuperHeroes
 //
 //  Created by Thaciana Lima on 22/04/18.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct CharacterDataWrapper: Codable {
+struct MarvelDataWrapper<T:Codable>: Codable {
     
-    struct CharacterDataContainer: Codable {
-        let results: [Hero]?
+    struct MarvelDataContainer<T:Codable>: Codable {
+        let results: [T]?
     }
     
     let code: Int
     let status: String
-    let data: CharacterDataContainer?
+    let data: MarvelDataContainer<T>?
 }

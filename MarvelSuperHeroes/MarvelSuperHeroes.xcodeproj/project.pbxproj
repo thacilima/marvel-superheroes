@@ -14,7 +14,7 @@
 		062271AA208B95FD00E09F52 /* MarvelSuperHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062271A9208B95FD00E09F52 /* MarvelSuperHeroesTests.swift */; };
 		062271B5208B95FD00E09F52 /* MarvelSuperHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062271B4208B95FD00E09F52 /* MarvelSuperHeroesUITests.swift */; };
 		064AD6FF208D3EF9009C2670 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD6FE208D3EF9009C2670 /* String+MD5.swift */; };
-		064AD702208D4F02009C2670 /* CharacterDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD701208D4F02009C2670 /* CharacterDataWrapper.swift */; };
+		064AD702208D4F02009C2670 /* MarvelDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD701208D4F02009C2670 /* MarvelDataWrapper.swift */; };
 		064AD705208D7998009C2670 /* HeroesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD704208D7998009C2670 /* HeroesListViewController.swift */; };
 		064AD707208D7B95009C2670 /* HeroesList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 064AD706208D7B95009C2670 /* HeroesList.storyboard */; };
 		064AD70A208D7DCC009C2670 /* HeroesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064AD709208D7DCC009C2670 /* HeroesListPresenter.swift */; };
@@ -62,7 +62,7 @@
 		062271B6208B95FD00E09F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		064AD6FE208D3EF9009C2670 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		064AD700208D4268009C2670 /* MarvelSuperHeroes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelSuperHeroes-Bridging-Header.h"; sourceTree = "<group>"; };
-		064AD701208D4F02009C2670 /* CharacterDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataWrapper.swift; sourceTree = "<group>"; };
+		064AD701208D4F02009C2670 /* MarvelDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataWrapper.swift; sourceTree = "<group>"; };
 		064AD704208D7998009C2670 /* HeroesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewController.swift; sourceTree = "<group>"; };
 		064AD706208D7B95009C2670 /* HeroesList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeroesList.storyboard; sourceTree = "<group>"; };
 		064AD709208D7DCC009C2670 /* HeroesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListPresenter.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				0606D802208CBB51001C61B3 /* Hero.swift */,
 				064AD6FE208D3EF9009C2670 /* String+MD5.swift */,
 				064AD700208D4268009C2670 /* MarvelSuperHeroes-Bridging-Header.h */,
-				064AD701208D4F02009C2670 /* CharacterDataWrapper.swift */,
+				064AD701208D4F02009C2670 /* MarvelDataWrapper.swift */,
 				06BD357A20917773002A2D6B /* UIImageView+LoadImageFromUrl.swift */,
 				06BD357C2091782B002A2D6B /* ImageHttpClient.swift */,
 			);
@@ -348,7 +348,7 @@
 				06702D53208B9D5700E1D542 /* MarvelService.swift in Sources */,
 				064AD6FF208D3EF9009C2670 /* String+MD5.swift in Sources */,
 				06BD357F2092ABE8002A2D6B /* HeroDetailsPresenter.swift in Sources */,
-				064AD702208D4F02009C2670 /* CharacterDataWrapper.swift in Sources */,
+				064AD702208D4F02009C2670 /* MarvelDataWrapper.swift in Sources */,
 				5414E233209278DE0014F956 /* HeroDetailsViewController.swift in Sources */,
 				064AD705208D7998009C2670 /* HeroesListViewController.swift in Sources */,
 				06BD35812092ACD2002A2D6B /* HeroDetailsMVPView.swift in Sources */,
