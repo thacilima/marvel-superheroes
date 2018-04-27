@@ -126,6 +126,7 @@
 		06227193208B95FD00E09F52 /* MarvelSuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				06BD35852092D31C002A2D6B /* Model */,
 				5414E23620928ACE0014F956 /* Animator */,
 				5414E231209278AA0014F956 /* HeroDetails */,
 				064AD703208D786A009C2670 /* HeroesList */,
@@ -134,10 +135,8 @@
 				0622719B208B95FD00E09F52 /* Assets.xcassets */,
 				0622719D208B95FD00E09F52 /* LaunchScreen.storyboard */,
 				062271A0208B95FD00E09F52 /* Info.plist */,
-				0606D802208CBB51001C61B3 /* Hero.swift */,
 				064AD6FE208D3EF9009C2670 /* String+MD5.swift */,
 				064AD700208D4268009C2670 /* MarvelSuperHeroes-Bridging-Header.h */,
-				064AD701208D4F02009C2670 /* MarvelDataWrapper.swift */,
 				06BD357A20917773002A2D6B /* UIImageView+LoadImageFromUrl.swift */,
 				06BD357C2091782B002A2D6B /* ImageHttpClient.swift */,
 			);
@@ -188,6 +187,15 @@
 				06BD35832092C474002A2D6B /* MarvelServiceTest_Integration.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		06BD35852092D31C002A2D6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				064AD701208D4F02009C2670 /* MarvelDataWrapper.swift */,
+				0606D802208CBB51001C61B3 /* Hero.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5414E231209278AA0014F956 /* HeroDetails */ = {
