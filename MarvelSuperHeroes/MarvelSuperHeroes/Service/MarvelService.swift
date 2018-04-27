@@ -42,7 +42,23 @@ class MarvelService {
     }
     
     func getComics(forHeroId heroId:Int, limit: Int, offset: Int, orderBy: String = "-modified", callback:@escaping (_ comics: [Comic]?, _ error: Error?)->Void) {
-        let urlString = baseUrlString(forEndpoint: "/characters/\(heroId)/comics", limit: limit, offset: offset)
+        getHeroDetails(forHeroId: heroId, heroDetailEndpoint: "/comics", limit: limit, offset: offset, orderBy: orderBy, callback: callback)
+    }
+    
+    func getEvents(forHeroId heroId:Int, limit: Int, offset: Int, orderBy: String = "-modified", callback:@escaping (_ comics: [Event]?, _ error: Error?)->Void) {
+        getHeroDetails(forHeroId: heroId, heroDetailEndpoint: "/events", limit: limit, offset: offset, orderBy: orderBy, callback: callback)
+    }
+    
+    func getStories(forHeroId heroId:Int, limit: Int, offset: Int, orderBy: String = "-modified", callback:@escaping (_ comics: [Story]?, _ error: Error?)->Void) {
+        getHeroDetails(forHeroId: heroId, heroDetailEndpoint: "/stories", limit: limit, offset: offset, orderBy: orderBy, callback: callback)
+    }
+    
+    func getSeries(forHeroId heroId:Int, limit: Int, offset: Int, orderBy: String = "-modified", callback:@escaping (_ comics: [Series]?, _ error: Error?)->Void) {
+        getHeroDetails(forHeroId: heroId, heroDetailEndpoint: "/series", limit: limit, offset: offset, orderBy: orderBy, callback: callback)
+    }
+    
+    private func getHeroDetails<T:Codable>(forHeroId heroId:Int, heroDetailEndpoint:String, limit: Int, offset: Int, orderBy: String, callback:@escaping (_ comics: [T]?, _ error: Error?)->Void) {
+        let urlString = baseUrlString(forEndpoint: "/characters/\(heroId)\(heroDetailEndpoint)", limit: limit, offset: offset)
         getHttpRequest(urlString: urlString, callback: { [weak self] data, error in
             
             guard error == nil else {
