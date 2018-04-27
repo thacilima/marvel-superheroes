@@ -20,12 +20,12 @@ class MarvelService {
         case missingExpectedData
     }
     
+    private let privateKey = "170ff3ab248ba262bf2c1c2bcb756b8a1fbc598b"
+    private let publicKey = "c8ba6278a8341ed4ba9d129a86de68d5"
+    
     func getHeroes(limit: Int, offset: Int, callback:@escaping (_ heroes: [Hero]?, _ error: Error?)->Void) {
-        let ts = UUID()
-        let privateKey = "170ff3ab248ba262bf2c1c2bcb756b8a1fbc598b"
-        let publicKey = "c8ba6278a8341ed4ba9d129a86de68d5"
-        let hash = "\(ts.uuidString)\(privateKey)\(publicKey)".md5()
-        let urlString = "https://gateway.marvel.com/v1/public/characters?limit=\(limit)&offset=\(offset)&ts=\(ts.uuidString)&apikey=\(publicKey)&hash=\(hash)"
+        
+        let urlString = baseUrlString(forEndpoint: "/characters", limit: limit, offset: offset)
         getHttpRequest(urlString: urlString, callback: { data, error in
             
             guard error == nil else {
@@ -59,6 +59,16 @@ class MarvelService {
                 callback(nil, error)
             }
         })
+    }
+    
+    private func createHash(uuid: UUID) -> String {
+        return "\(uuid.uuidString)\(privateKey)\(publicKey)".md5()
+    }
+    
+    private func baseUrlString(forEndpoint endpoint: String, limit: Int, offset: Int) -> String {
+        let uuid = UUID()
+        let hash = createHash(uuid: uuid)
+        return "https://gateway.marvel.com/v1/public\(endpoint)?limit=\(limit)&offset=\(offset)&ts=\(uuid.uuidString)&apikey=\(publicKey)&hash=\(hash)"
     }
     
     func getHttpRequest(urlString: String, callback:@escaping (_ data: Data?, _ error: Error?)->Void) {
