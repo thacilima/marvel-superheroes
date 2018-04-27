@@ -67,6 +67,7 @@ extension HeroDetailsViewController: UITableViewDataSource {
         let heroDetail = detailsSections[indexPath.section].details[indexPath.row]
         cell.textLabel?.text = heroDetail.name
         cell.detailTextLabel?.text = heroDetail.description
+        cell.detailTextLabel?.numberOfLines = 0
         
         return cell
     }
