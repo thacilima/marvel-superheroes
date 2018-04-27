@@ -41,6 +41,12 @@ class HeroDetailsPresenter {
         })
     }
     
+    func imageUrlString(fromMarvelImage marvelImage: Hero.RemoteImageDataWrapper) -> String {
+        return "\(marvelImage.path)/landscape_xlarge.\(marvelImage.imageExtension)"
+    }
+    
+    // MARK: - Private methods
+    
     private func load(heroDetails: [HeroDetail]?, error: Error?, heroDetailsSectionIndex: Int) {
         //TODO Increment load request finished counter
         //TODO Hide loading, if its the last request

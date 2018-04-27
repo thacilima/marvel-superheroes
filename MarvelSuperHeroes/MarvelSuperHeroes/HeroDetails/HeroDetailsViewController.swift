@@ -10,6 +10,8 @@ import UIKit
 
 class HeroDetailsViewController: UIViewController {
     
+    @IBOutlet weak var heroNameLabel: UILabel!
+    @IBOutlet weak var heroImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     var detailsSections: [(title: String, details: [HeroDetail])] = []
@@ -23,11 +25,17 @@ class HeroDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         presenter.loadHeroDetails()
     }
     
     @IBAction func onClickBack(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func setup() {
+        heroNameLabel.text = hero.name
+        heroImageView.loadImage(fromUrlString: presenter.imageUrlString(fromMarvelImage: hero.thumbnail), placeholder: #imageLiteral(resourceName: "placeholder"))
     }
 }
 
