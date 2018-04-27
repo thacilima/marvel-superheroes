@@ -11,5 +11,5 @@ import Foundation
 protocol HeroDetail {
     var id: Int { get }
     var name: String { get }
-    var description: String { get }
+    var description: String? { get }
 }

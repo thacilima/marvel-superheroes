@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Comic: Codable {
+struct Comic: Codable, HeroDetail {
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -18,5 +18,5 @@ struct Comic: Codable {
     
     let id: Int
     let name: String
-    let description: String
+    let description: String?
 }
