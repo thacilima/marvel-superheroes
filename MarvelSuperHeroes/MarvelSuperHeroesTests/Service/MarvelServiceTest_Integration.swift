@@ -59,16 +59,16 @@ class MarvelServiceTest_Integration: XCTestCase {
     func testGetComics_ReturnsAtLeastOneComicWithContent() {
         let expectation1 = expectation(description: "Wait for getComics completion.")
         var error: Error?
-        var comicsResult: String?
+        var comics: [Comic]?
         marvelService.getComics(forHeroId: 1011334, limit: 3, offset: 0, callback: { returnedComics, returnedError in
             error = returnedError
-            comicsResult = returnedComics
+            comics = returnedComics
             expectation1.fulfill()
         })
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssertNil(error)
-        XCTAssertNotNil(comicsResult)
-        XCTAssertFalse(comicsResult?.isEmpty ?? true)
+        XCTAssertNotNil(comics)
+        XCTAssertNotEqual(comics?[0].id ?? 0, 0)
     }
     
     func testGetHttpRequest_WithValidUrl_ReturnsData() {

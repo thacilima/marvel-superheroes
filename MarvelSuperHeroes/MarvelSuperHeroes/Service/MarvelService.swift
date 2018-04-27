@@ -41,8 +41,20 @@ class MarvelService {
         })
     }
     
+    func getComics(forHeroId heroId:Int, limit: Int, offset: Int, orderBy: String = "-modified", callback:@escaping (_ comics: [Comic]?, _ error: Error?)->Void) {
+        let urlString = baseUrlString(forEndpoint: "/characters/\(heroId)/comics", limit: limit, offset: offset)
+        getHttpRequest(urlString: urlString, callback: { [weak self] data, error in
+            
+            guard error == nil else {
                 callback(nil, error)
+                return
             }
+            guard let data = data else {
+                callback(nil, MarvelServiceError.missingExpectedData)
+                return
+            }
+            
+            self?.parse(receivedData: data, callback: callback)
         })
     }
     
