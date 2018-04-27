@@ -9,5 +9,6 @@
 import Foundation
 
 protocol HeroDetailsMVPView: class {
-    
+    func update(detailsSections: [(title: String, details: [HeroDetail])])
+    func update(section: Int, details: [HeroDetail])
 }
