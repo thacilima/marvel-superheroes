@@ -26,6 +26,7 @@
 		06BD35812092ACD2002A2D6B /* HeroDetailsMVPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35802092ACD2002A2D6B /* HeroDetailsMVPView.swift */; };
 		06BD35842092C474002A2D6B /* MarvelServiceTest_Integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35832092C474002A2D6B /* MarvelServiceTest_Integration.swift */; };
 		06BD35872092D3C1002A2D6B /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35862092D3C1002A2D6B /* Comic.swift */; };
+		06BD35892092DC1E002A2D6B /* HeroDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35882092DC1E002A2D6B /* HeroDetail.swift */; };
 		5414E233209278DE0014F956 /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414E232209278DE0014F956 /* HeroDetailsViewController.swift */; };
 		5414E235209279480014F956 /* HeroDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5414E234209279480014F956 /* HeroDetails.storyboard */; };
 		5414E23820928C380014F956 /* CustomPresentAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414E23720928C380014F956 /* CustomPresentAnimatedTransitioning.swift */; };
@@ -75,6 +76,7 @@
 		06BD35802092ACD2002A2D6B /* HeroDetailsMVPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsMVPView.swift; sourceTree = "<group>"; };
 		06BD35832092C474002A2D6B /* MarvelServiceTest_Integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelServiceTest_Integration.swift; sourceTree = "<group>"; };
 		06BD35862092D3C1002A2D6B /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		06BD35882092DC1E002A2D6B /* HeroDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetail.swift; sourceTree = "<group>"; };
 		5414E232209278DE0014F956 /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsViewController.swift; sourceTree = "<group>"; };
 		5414E234209279480014F956 /* HeroDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeroDetails.storyboard; sourceTree = "<group>"; };
 		5414E23720928C380014F956 /* CustomPresentAnimatedTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				5414E234209279480014F956 /* HeroDetails.storyboard */,
 				06BD357E2092ABE8002A2D6B /* HeroDetailsPresenter.swift */,
 				06BD35802092ACD2002A2D6B /* HeroDetailsMVPView.swift */,
+				06BD35882092DC1E002A2D6B /* HeroDetail.swift */,
 			);
 			path = HeroDetails;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				06227195208B95FD00E09F52 /* AppDelegate.swift in Sources */,
 				5414E23820928C380014F956 /* CustomPresentAnimatedTransitioning.swift in Sources */,
 				06BD357D2091782B002A2D6B /* ImageHttpClient.swift in Sources */,
+				06BD35892092DC1E002A2D6B /* HeroDetail.swift in Sources */,
 				064AD70A208D7DCC009C2670 /* HeroesListPresenter.swift in Sources */,
 				064AD710208D7F97009C2670 /* HeroesListMVPView.swift in Sources */,
 				0606D803208CBB51001C61B3 /* Hero.swift in Sources */,
