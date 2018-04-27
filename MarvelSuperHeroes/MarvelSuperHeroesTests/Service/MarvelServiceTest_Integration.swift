@@ -53,7 +53,22 @@ class MarvelServiceTest_Integration: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNil(error)
         XCTAssertNotNil(heroes)
-        XCTAssertNotEqual(heroes![0].id, 0)
+        XCTAssertNotEqual(heroes?[0].id ?? 0, 0)
+    }
+    
+    func testGetComics_ReturnsAtLeastOneComicWithContent() {
+        let expectation1 = expectation(description: "Wait for getComics completion.")
+        var error: Error?
+        var comicsResult: String?
+        marvelService.getComics(forHeroId: 1011334, limit: 3, offset: 0, callback: { returnedComics, returnedError in
+            error = returnedError
+            comicsResult = returnedComics
+            expectation1.fulfill()
+        })
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNil(error)
+        XCTAssertNotNil(comicsResult)
+        XCTAssertFalse(comicsResult?.isEmpty ?? true)
     }
     
     func testGetHttpRequest_WithValidUrl_ReturnsData() {

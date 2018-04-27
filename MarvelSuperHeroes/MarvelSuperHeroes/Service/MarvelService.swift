@@ -26,7 +26,7 @@ class MarvelService {
     func getHeroes(limit: Int, offset: Int, callback:@escaping (_ heroes: [Hero]?, _ error: Error?)->Void) {
         
         let urlString = baseUrlString(forEndpoint: "/characters", limit: limit, offset: offset)
-        getHttpRequest(urlString: urlString, callback: { data, error in
+        getHttpRequest(urlString: urlString, callback: { [weak self] data, error in
             
             guard error == nil else {
                 callback(nil, error)
@@ -37,28 +37,37 @@ class MarvelService {
                 return
             }
             
-            let decoder = JSONDecoder()
-            do {
-                let characterDataWrapper = try decoder.decode(MarvelDataWrapper<Hero>.self, from: data)
-                guard characterDataWrapper.code == 200 else {
-                    callback(nil, MarvelServiceError.statusCodeReturnedErrorCode(code: characterDataWrapper.code, status: characterDataWrapper.status))
-                    return
-                }
-                guard let characterDataContainer = characterDataWrapper.data else {
-                    callback(nil, MarvelServiceError.missingExpectedData)
-                    return
-                }
-                guard let heroList = characterDataContainer.results else {
-                    callback(nil, MarvelServiceError.missingExpectedData)
-                    return
-                }
-                
-                callback(heroList, nil)
-            }
-            catch {
+            self?.parse(receivedData: data, callback: callback)
+        })
+    }
+    
                 callback(nil, error)
             }
         })
+    }
+    
+    private func parse<T:Codable>(receivedData: Data, callback:(_ results: [T]?, _ error: Error?)->Void) {
+        let decoder = JSONDecoder()
+        do {
+            let dataWrapper = try decoder.decode(MarvelDataWrapper<T>.self, from: receivedData)
+            guard dataWrapper.code == 200 else {
+                callback(nil, MarvelServiceError.statusCodeReturnedErrorCode(code: dataWrapper.code, status: dataWrapper.status))
+                return
+            }
+            guard let dataContainer = dataWrapper.data else {
+                callback(nil, MarvelServiceError.missingExpectedData)
+                return
+            }
+            guard let results = dataContainer.results else {
+                callback(nil, MarvelServiceError.missingExpectedData)
+                return
+            }
+            
+            callback(results, nil)
+        }
+        catch {
+            callback(nil, error)
+        }
     }
     
     private func createHash(uuid: UUID) -> String {
