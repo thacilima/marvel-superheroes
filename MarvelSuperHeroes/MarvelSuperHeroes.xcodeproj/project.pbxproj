@@ -27,6 +27,9 @@
 		06BD35842092C474002A2D6B /* MarvelServiceTest_Integration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35832092C474002A2D6B /* MarvelServiceTest_Integration.swift */; };
 		06BD35872092D3C1002A2D6B /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35862092D3C1002A2D6B /* Comic.swift */; };
 		06BD35892092DC1E002A2D6B /* HeroDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD35882092DC1E002A2D6B /* HeroDetail.swift */; };
+		541231A42093D2D400C8B1EE /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541231A32093D2D400C8B1EE /* Series.swift */; };
+		541231A62093D2ED00C8B1EE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541231A52093D2ED00C8B1EE /* Event.swift */; };
+		541231A82093D2FD00C8B1EE /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541231A72093D2FD00C8B1EE /* Story.swift */; };
 		5414E233209278DE0014F956 /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414E232209278DE0014F956 /* HeroDetailsViewController.swift */; };
 		5414E235209279480014F956 /* HeroDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5414E234209279480014F956 /* HeroDetails.storyboard */; };
 		5414E23820928C380014F956 /* CustomPresentAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5414E23720928C380014F956 /* CustomPresentAnimatedTransitioning.swift */; };
@@ -77,6 +80,9 @@
 		06BD35832092C474002A2D6B /* MarvelServiceTest_Integration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelServiceTest_Integration.swift; sourceTree = "<group>"; };
 		06BD35862092D3C1002A2D6B /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		06BD35882092DC1E002A2D6B /* HeroDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetail.swift; sourceTree = "<group>"; };
+		541231A32093D2D400C8B1EE /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		541231A52093D2ED00C8B1EE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		541231A72093D2FD00C8B1EE /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5414E232209278DE0014F956 /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsViewController.swift; sourceTree = "<group>"; };
 		5414E234209279480014F956 /* HeroDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeroDetails.storyboard; sourceTree = "<group>"; };
 		5414E23720928C380014F956 /* CustomPresentAnimatedTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimatedTransitioning.swift; sourceTree = "<group>"; };
@@ -199,6 +205,9 @@
 				064AD701208D4F02009C2670 /* MarvelDataWrapper.swift */,
 				0606D802208CBB51001C61B3 /* Hero.swift */,
 				06BD35862092D3C1002A2D6B /* Comic.swift */,
+				541231A52093D2ED00C8B1EE /* Event.swift */,
+				541231A72093D2FD00C8B1EE /* Story.swift */,
+				541231A32093D2D400C8B1EE /* Series.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,12 +372,15 @@
 				064AD6FF208D3EF9009C2670 /* String+MD5.swift in Sources */,
 				06BD357F2092ABE8002A2D6B /* HeroDetailsPresenter.swift in Sources */,
 				064AD702208D4F02009C2670 /* MarvelDataWrapper.swift in Sources */,
+				541231A82093D2FD00C8B1EE /* Story.swift in Sources */,
 				5414E233209278DE0014F956 /* HeroDetailsViewController.swift in Sources */,
+				541231A62093D2ED00C8B1EE /* Event.swift in Sources */,
 				064AD705208D7998009C2670 /* HeroesListViewController.swift in Sources */,
 				06BD35872092D3C1002A2D6B /* Comic.swift in Sources */,
 				06BD35812092ACD2002A2D6B /* HeroDetailsMVPView.swift in Sources */,
 				06227195208B95FD00E09F52 /* AppDelegate.swift in Sources */,
 				5414E23820928C380014F956 /* CustomPresentAnimatedTransitioning.swift in Sources */,
+				541231A42093D2D400C8B1EE /* Series.swift in Sources */,
 				06BD357D2091782B002A2D6B /* ImageHttpClient.swift in Sources */,
 				06BD35892092DC1E002A2D6B /* HeroDetail.swift in Sources */,
 				064AD70A208D7DCC009C2670 /* HeroesListPresenter.swift in Sources */,
