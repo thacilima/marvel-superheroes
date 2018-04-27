@@ -16,6 +16,7 @@ class HeroesListViewController: UIViewController {
     
     let presenter = HeroesListPresenter()
     var heroes: [Hero] = []
+    var lastSelectedHero: Hero? = nil
     
     let showHeroDetailsSegue = "ShowHeroDetailsSegue"
     let customPresentAnimatedTransitioning = CustomPresentAnimatedTransitioning()
@@ -30,7 +31,14 @@ class HeroesListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showHeroDetailsSegue {
+            guard let lastSelectedHero = lastSelectedHero else {
+                fatalError("You must set a value to lastSelectedHero to perform \(showHeroDetailsSegue)")
+            }
+            
             segue.destination.transitioningDelegate = self
+            
+            let vc = segue.destination as! HeroDetailsViewController
+            vc.hero = lastSelectedHero
         }
     }
     
@@ -81,6 +89,7 @@ extension HeroesListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        lastSelectedHero = heroes[indexPath.row]
         performSegue(withIdentifier: showHeroDetailsSegue, sender: self)
     }
 }

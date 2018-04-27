@@ -9,7 +9,14 @@
 import UIKit
 
 class HeroDetailsViewController: UIViewController {
-
+    
+    private let presenter = HeroDetailsPresenter()
+    var hero: Hero! {
+        didSet {
+            presenter.attach(mvpView: self, hero: hero)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,4 +24,8 @@ class HeroDetailsViewController: UIViewController {
     @IBAction func onClickBack(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension HeroDetailsViewController: HeroDetailsMVPView {
+    
 }
