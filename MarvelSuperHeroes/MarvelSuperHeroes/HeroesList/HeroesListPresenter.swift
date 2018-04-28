@@ -33,7 +33,7 @@ class HeroesListPresenter {
         }
     }
     
-    func imageUrlStringForList(fromMarvelImage marvelImage: Hero.RemoteImageDataWrapper) -> String {
+    func imageUrlString(fromMarvelImage marvelImage: Hero.RemoteImageDataWrapper) -> String {
         return "\(marvelImage.path)/standard_medium.\(marvelImage.imageExtension)"
     }
     

@@ -16,6 +16,10 @@ class HeroesListViewController: UIViewController {
     
     let presenter = HeroesListPresenter()
     var heroes: [Hero] = []
+    var lastSelectedHero: Hero? = nil
+    
+    let showHeroDetailsSegue = "ShowHeroDetailsSegue"
+    let customPresentAnimatedTransitioning = CustomPresentAnimatedTransitioning()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,19 @@ class HeroesListViewController: UIViewController {
         setupActivityIndicator()
         setupRefreshControl()
         presenter.refreshHeroes()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showHeroDetailsSegue {
+            guard let lastSelectedHero = lastSelectedHero else {
+                fatalError("You must set a value to lastSelectedHero to perform \(showHeroDetailsSegue)")
+            }
+            
+            segue.destination.transitioningDelegate = self
+            
+            let vc = segue.destination as! HeroDetailsViewController
+            vc.hero = lastSelectedHero
+        }
     }
     
     func setupRefreshControl() {
@@ -58,7 +75,7 @@ extension HeroesListViewController: UITableViewDataSource {
         
         let hero = heroes[indexPath.row]
         cell?.textLabel?.text = hero.name
-        cell?.imageView?.loadImage(fromUrlString: presenter.imageUrlStringForList(fromMarvelImage: hero.thumbnail), placeholder: #imageLiteral(resourceName: "placeholder"))
+        cell?.imageView?.loadImage(fromUrlString: presenter.imageUrlString(fromMarvelImage: hero.thumbnail), placeholder: #imageLiteral(resourceName: "placeholder"))
         return cell
     }
 }
@@ -69,6 +86,11 @@ extension HeroesListViewController: UITableViewDelegate {
         if (bottomEdge >= scrollView.contentSize.height) {
             presenter.loadHeroesNextPage()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        lastSelectedHero = heroes[indexPath.row]
+        performSegue(withIdentifier: showHeroDetailsSegue, sender: self)
     }
 }
 
@@ -105,5 +127,11 @@ extension HeroesListViewController: HeroesListMVPView {
     
     func showBottomLoading() {
         bottomActivityIndicator.startAnimating()
+    }
+}
+
+extension HeroesListViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customPresentAnimatedTransitioning
     }
 }
