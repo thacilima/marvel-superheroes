@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HNH-gs-bwp">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hero Details View Controller-->
+        <scene sceneID="oOd-CX-4qd">
+            <objects>
+                <viewController id="HNH-gs-bwp" customClass="HeroDetailsViewController" customModule="MarvelSuperHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T07-ha-moA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dSN-Uc-lfI">
+                                <rect key="frame" x="0.0" y="64" width="320" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="BD7-6R-who"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efw-sx-7ub">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="1MS-Em-2GO">
+                                        <barButtonItem key="leftBarButtonItem" title="Heroes" id="8EH-MB-10G">
+                                            <connections>
+                                                <action selector="onClickBack:" destination="HNH-gs-bwp" id="i4X-v8-bBl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-kW-coa">
+                                <rect key="frame" x="0.0" y="244" width="320" height="324"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HNH-gs-bwp" id="1Zi-CZ-1nP"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmu-Jc-jiu">
+                                <rect key="frame" x="220" y="207" width="84" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Efw-sx-7ub" firstAttribute="trailing" secondItem="dfD-77-agj" secondAttribute="trailing" id="56M-ZT-sva"/>
+                            <constraint firstItem="dSN-Uc-lfI" firstAttribute="top" secondItem="Efw-sx-7ub" secondAttribute="bottom" id="6Sh-Wb-jOF"/>
+                            <constraint firstItem="Uec-kW-coa" firstAttribute="top" secondItem="dSN-Uc-lfI" secondAttribute="bottom" id="8t6-jE-9aD"/>
+                            <constraint firstItem="Uec-kW-coa" firstAttribute="top" secondItem="Rmu-Jc-jiu" secondAttribute="bottom" constant="16" id="GHp-1h-dMb"/>
+                            <constraint firstItem="Efw-sx-7ub" firstAttribute="leading" secondItem="dfD-77-agj" secondAttribute="leading" id="MzE-JB-hah"/>
+                            <constraint firstItem="dSN-Uc-lfI" firstAttribute="leading" secondItem="dfD-77-agj" secondAttribute="leading" id="TK9-Yf-qCQ"/>
+                            <constraint firstItem="Uec-kW-coa" firstAttribute="leading" secondItem="dfD-77-agj" secondAttribute="leading" id="U3t-x8-r3e"/>
+                            <constraint firstItem="Uec-kW-coa" firstAttribute="bottom" secondItem="dfD-77-agj" secondAttribute="bottom" id="Wgx-6I-TeN"/>
+                            <constraint firstItem="dfD-77-agj" firstAttribute="trailing" secondItem="Rmu-Jc-jiu" secondAttribute="trailing" constant="16" id="YDS-3J-gLN"/>
+                            <constraint firstItem="dSN-Uc-lfI" firstAttribute="trailing" secondItem="dfD-77-agj" secondAttribute="trailing" id="hXj-fD-ztP"/>
+                            <constraint firstItem="dfD-77-agj" firstAttribute="top" secondItem="Efw-sx-7ub" secondAttribute="top" id="k1F-MQ-Usp"/>
+                            <constraint firstItem="Uec-kW-coa" firstAttribute="trailing" secondItem="dfD-77-agj" secondAttribute="trailing" id="p7r-Fq-sT1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dfD-77-agj"/>
+                    </view>
+                    <connections>
+                        <outlet property="heroImageView" destination="dSN-Uc-lfI" id="M9u-O7-28h"/>
+                        <outlet property="heroNameLabel" destination="Rmu-Jc-jiu" id="wM7-YI-zzM"/>
+                        <outlet property="tableView" destination="Uec-kW-coa" id="JOY-EJ-mnd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hA8-uR-25t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="76.911544227886068"/>
+        </scene>
+    </scenes>
+</document>
